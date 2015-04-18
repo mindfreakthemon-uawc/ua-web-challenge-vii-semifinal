@@ -1,0 +1,12 @@
+include ../mixins/comment.jade
+include ../mixins/post.jade
+
+.container
+	.row
+		.col-lg-12
+			+post(post)
+
+	.row
+		.col-lg-12
+			each model in models
+				+comment(model)

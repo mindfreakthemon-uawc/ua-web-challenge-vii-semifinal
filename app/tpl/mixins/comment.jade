@@ -1,0 +1,18 @@
+mixin comment(model)
+	.media.comment
+		.media-left
+		.media-body
+			if model.kind === 'more'
+				h5 MORE
+			else
+				.panel.panel-default
+					.panel-body
+						| !{url.unraw(model.body_html)}
+					.panel-footer
+						| Author:&nbsp;
+						a(href='https://www.reddit.com/u/' + model.author)= model.author
+						| . Created at #{moment.unix(model.created_utc).format('YYYY-mm-DD HH:mm')}
+
+			if model.replies
+				each reply in model.replies
+					+comment(reply)

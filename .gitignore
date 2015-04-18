@@ -25,3 +25,21 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+bower_components
+
+# IDEA files
+*.iml
+*.ipr
+*.iws
+*.ids
+
+# Public dir
+/public/html/
+/public/css/
+/public/js/
+/public/templates.js
+/public/images/
+/public/lib/
+
+# App dir
+/app/stylus/sprite.styl

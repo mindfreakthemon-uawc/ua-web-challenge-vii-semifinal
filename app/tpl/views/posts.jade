@@ -1,0 +1,10 @@
+include ../mixins/post.jade
+
+each model in models
+	+post(model)
+
+nav: ul.pagination.pagination-lg
+	li.arrow(class=collection.hasPreviousPage() ? '' : 'disabled')
+		a.prev(href='#') &laquo; previous
+	li.arrow(class=collection.hasNextPage() ? '' : 'disabled')
+		a.next(href='#') next &raquo;
