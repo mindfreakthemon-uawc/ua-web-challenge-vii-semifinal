@@ -1,10 +1,11 @@
 mixin comment(model)
-	.media.comment
-		.media-left
-		.media-body
-			if model.kind === 'more'
-				h5 MORE
-			else
+	if model.kind === 'more'
+		// @TODO loading more comments is not implemented
+		//h5 MORE
+	else
+		.media.comment
+			.media-left
+			.media-body
 				.panel.panel-default
 					.panel-body
 						| !{url.unraw(model.body_html)}
@@ -12,7 +13,6 @@ mixin comment(model)
 						| Author:&nbsp;
 						a(href='https://www.reddit.com/u/' + model.author)= model.author
 						| . Created at #{moment.unix(model.created_utc).format('YYYY-mm-DD HH:mm')}
-
-			if model.replies
-				each reply in model.replies
-					+comment(reply)
+				if model.replies
+					each reply in model.replies
+						+comment(reply)

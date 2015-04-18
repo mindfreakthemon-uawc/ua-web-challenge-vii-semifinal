@@ -24,11 +24,15 @@ define([
 
 				router.route('?/:subreddit(/:type)(/:page/:anchor_type/:anchor)(/)', 'reddit', this.reddit.bind(this));
 				router.route('?/:subreddit/comments/:id/:name(/)', 'post', this.post.bind(this));
+
+				this.listenTo(router, 'routing', function () {
+					this.$el.empty();
+				});
 			},
 
 			reddit: function (name, type, page, anchorType, anchor) {
 				type || (type = 'hot');
-				page || (page = 0);
+				page = page | 0;
 
 				this.subreddit(name, type)
 					.$el.appendTo(this.$el);
@@ -36,7 +40,7 @@ define([
 				var posts = new PostsCollection(null, {
 					name: name,
 					type: type,
-					page: +page,
+					page: page,
 					anchorType: anchorType,
 					anchor: anchor
 				});
@@ -53,6 +57,16 @@ define([
 				});
 
 				postsView.$el.appendTo(this.$el);
+
+				if (type === 'hot' && page === 0) {
+					// load first 25 comment pages
+					this.listenToOnce(posts, 'reset', function () {
+						posts.models.forEach(function (post) {
+							fetch('https://www.reddit.com' + post.get('permalink').replace(/\/$/, '') + '.json');
+						});
+					});
+				}
+
 				posts.fetch({ reset: true });
 			},
 
@@ -100,8 +114,6 @@ define([
 				if (Backbone.history.fragment === fragment) {
 					return''
 				}
-
-				this.$el.empty();
 
 				router.navigate(e.target.search, { trigger: true });
 			}

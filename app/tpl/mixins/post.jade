@@ -7,3 +7,8 @@ mixin post(model)
 
 			a.fn-click(href=url.port(model.permalink)).btn.btn-default comments: &nbsp;
 				span.badge= model.num_comments
+			| &nbsp;
+			a.btn.btn-default created at: &nbsp;
+				= moment.unix(model.created_utc).format('YYYY-mm-DD HH:mm')
+			| &nbsp;
+			a.btn.btn-default by #{model.author}
