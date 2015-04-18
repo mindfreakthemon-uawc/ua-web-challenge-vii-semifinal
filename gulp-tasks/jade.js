@@ -9,6 +9,6 @@ gulp.task('jade', function () {
 		//.pipe(changed('./public/html', { extension: '.html' }))
 		.pipe(plumber())
 		.pipe(jade())
-		.pipe(gulp.dest('./public/html'))
+		.pipe(gulp.dest('./public'))
 		.pipe(connect.reload());
 });

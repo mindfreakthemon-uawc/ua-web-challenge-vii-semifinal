@@ -39,6 +39,4 @@ bower_components
 /public/js/
 /public/templates.js
 /public/lib/
-
-# App dir
-/app/stylus/sprite.styl
+/public/*.html
