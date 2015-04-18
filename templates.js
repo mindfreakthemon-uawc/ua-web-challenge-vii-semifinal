@@ -12,7 +12,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 
-buf.push("<h1>LOADING<img src=\"/images/loading.gif\" class=\"loading\"/></h1>");;return buf.join("");
+buf.push("<h1>LOADING<img src=\"images/loading.gif\" class=\"loading\"/></h1>");;return buf.join("");
 }
 tpl.comment = function (locals) {
 var buf = [];
