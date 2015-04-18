@@ -1,0 +1,1 @@
+{"version":3,"sources":["entities/router.js"],"names":[],"mappings":";;AAAA,MAAM,CAAC,CACL,mBAAmB,CACnB,EACD,UAAU,SAAS,EAAE;AACpB,QAAO,IAAI,SAAS,EAAE,CAAC;CACvB,CAAC,CAAC","file":"entities/router.js","sourcesContent":["define([\n\t\t'routers/workspace'\n\t],\n\tfunction (Workspace) {\n\t\treturn new Workspace();\n\t});"],"sourceRoot":"/source/"}
