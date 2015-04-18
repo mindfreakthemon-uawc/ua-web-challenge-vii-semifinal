@@ -1,10 +1,9 @@
 define([
 		'jquery',
 		'templates',
-		'utils/underscore.mixed',
+		'underscore',
 		'moment',
-		'utils/url',
-		'moment-duration-format',
+		'utils/url'
 	],
 	function ($, templates, _, moment, url) {
 		Object.keys(templates)

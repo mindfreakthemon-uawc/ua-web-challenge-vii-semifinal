@@ -6,9 +6,7 @@ gulp.task('clean', function () {
 		'./public/css',
 		'./public/js',
 		'./public/html',
-		'./public/images',
-		'./public/templates.js',
-		'./app/stylus/sprite.styl'
+		'./public/templates.js'
 	], { read: false })
 		.pipe(clean());
 });

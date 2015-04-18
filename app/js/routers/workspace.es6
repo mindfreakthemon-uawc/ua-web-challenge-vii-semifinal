@@ -1,15 +1,6 @@
 define([
-		'backbone',
-		'utils/underscore.mixed'
+		'backbone'
 	],
-	function (Backbone, _) {
-		return Backbone.Router.extend({
-			//execute: function (callback, args) {
-			//	args.push(_.fromQueryString(args.pop() || ''));
-			//
-			//	if (callback) {
-			//		callback.apply(this, args);
-			//	}
-			//}
-		});
+	function (Backbone) {
+		return Backbone.Router.extend({});
 	});

@@ -22,8 +22,8 @@ define([
 			initialize: function () {
 				this.router = router;
 
-				router.route('?/r/:subreddit(/:type)(/:page/:anchor_type/:anchor)(/)', 'reddit', this.reddit.bind(this));
-				router.route('?/r/:subreddit/comments/:id/:name(/)', 'post', this.post.bind(this));
+				router.route('?/:subreddit(/:type)(/:page/:anchor_type/:anchor)(/)', 'reddit', this.reddit.bind(this));
+				router.route('?/:subreddit/comments/:id/:name(/)', 'post', this.post.bind(this));
 			},
 
 			reddit: function (name, type, page, anchorType, anchor) {
@@ -45,7 +45,7 @@ define([
 					var page = posts.state.currentPage,
 						pagePath = page ? '/' + posts.state.currentPage + '/' + posts.state.anchorType + '/' + posts.state.anchor : '';
 
-					this.router.navigate('?/r/' + name + '/' + type + pagePath);
+					this.router.navigate('?/' + name + '/' + type + pagePath);
 				});
 
 				var postsView = new PostsView({

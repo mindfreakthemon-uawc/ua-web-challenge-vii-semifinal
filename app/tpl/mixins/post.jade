@@ -5,5 +5,5 @@ mixin post(model)
 			if model.selftext
 				.well.well-sm !{url.unraw(model.selftext_html)}
 
-			a.fn-click(href='?' + model.permalink).btn.btn-default comments: &nbsp;
+			a.fn-click(href=url.port(model.permalink)).btn.btn-default comments: &nbsp;
 				span.badge= model.num_comments

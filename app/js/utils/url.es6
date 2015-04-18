@@ -2,14 +2,14 @@ define([
 		'underscore'
 	],
 	function () {
-		const SUBREDDIT_PREFIX = /^https?:\/\/www\.reddit\.com\/r\//i;
+		const SUBREDDIT_PREFIX = /^(?:https?:\/\/www\.reddit\.com)?\/r\//i;
 		const RELATIVE_HREF = /="\//;
 		const REDDIT_URL = 'https://www.reddit.com/';
 
 		return {
 			port: function (url) {
 				if (SUBREDDIT_PREFIX.test(url)) {
-					return url.replace(SUBREDDIT_PREFIX, '?/r/');
+					return url.replace(SUBREDDIT_PREFIX, '?/');
 				}
 
 				return url;

@@ -1,6 +1,6 @@
 h1 /r/#{model.name}
 nav: ul.nav.nav-pills.type
 	each type in ['hot', 'new', 'rising', 'controversial', 'top']
-		li(class=(type === model.type ? 'active' : '')): a.fn-click(href='?/r/' + model.name + '/' + type)= type
+		li(class=(type === model.type ? 'active' : '')): a.fn-click(href='?/' + model.name + '/' + type)= type
 	if 'comment' === model.type
 		li.active: a comments
