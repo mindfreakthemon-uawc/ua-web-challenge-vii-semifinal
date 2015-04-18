@@ -6,6 +6,8 @@ define([
 		return Backbone.View.extend({
 			template: tmpls.subreddit,
 
+			className: 'subreddit',
+
 			initialize: function () {
 				this.listenTo(this.model, 'change', this.render);
 			},

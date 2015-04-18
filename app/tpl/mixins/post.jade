@@ -1,5 +1,5 @@
 mixin post(model)
-	.media
+	.media.post
 		.media-body
 			h2.media-heading: a(href=model.url) !{model.title}
 			if model.selftext
